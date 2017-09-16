@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Recipe App</title>
+
+
+
+
+
+</head>
+
+<body>
+	<body ng-app="mah-app" ng-controller="mah-controller">
+		<h1>Recipe App</h1>
+  <!-- <h3>Search Ingrdients:</h3>
+  <input type="text" ng-model="contactSearch" placeholder="Search Ingredients"> -->
+
+  <h4>Pick Ingredients</h4>
+  <input type="checkbox" data-ng-model='search.type1' data-ng-true-value='chicken' data-ng-false-value='' /> Chicken &nbsp;&nbsp;&nbsp;
+  <input type="checkbox" data-ng-model='search.type2' data-ng-true-value='beef' data-ng-false-value='' /> Beef
+  <input type="checkbox" data-ng-model='search.type3' data-ng-true-value='cheese' data-ng-false-value='' /> Cheese
+  <h4>Recipies:</h4>
+  <div ng-repeat = "recipe in recipies | filter:search.type1 | filter:search.type2 | filter:search.type3">
+  	{{ recipe.Name }}
+  	<!-- {{ 'Name: ' + recipe.Name + ', Instructions: ' + recipe.Instructions + ', Number: ' + recipe.Phone + ', Location: ' + recipe.Address }} -->
+  </div>
+        <!-- <div ng-repeat = "recipe in recipies | filter: contactSearch track by $index">
+                {{ 'Name: ' + recipe.Name + ', Instructions: ' + recipe.Instructions + ', Number: ' + recipe.Phone + ', Location: ' + recipe.Address }}
+            </div> -->
+        </body>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.0rc3/angular.min.js'></script>
+
+        <script src="js/index.js"></script>
+
+    </body>
+    </html>
