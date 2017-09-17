@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Recipe App</title>
-
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link rel="stylesheet" href="style.css">
 
 
 
@@ -13,22 +13,46 @@
 
 <body>
 	<body ng-app="mah-app" ng-controller="mah-controller">
-		<h1>Recipe App</h1>
+    <div class="container">
+		<!-- <h1>Recipe App</h1> -->
   <!-- <h3>Search Ingrdients:</h3>
   <input type="text" ng-model="contactSearch" placeholder="Search Ingredients"> -->
-
-  <h4>Pick Ingredients</h4>
-  <input type="checkbox" data-ng-model='search.type1' data-ng-true-value='chicken' data-ng-false-value='' /> Chicken &nbsp;&nbsp;&nbsp;
+<div class="blur"></div>
+  <h5>Pick Ingredients</h5>
+  <form action="#">
+    <p>
+      <input type="checkbox" id="test5" data-ng-model='search.type1' data-ng-true-value='chicken' />
+      <label for="test5">Chicken</label>
+    </p>
+    <p>
+      <input type="checkbox" id="test2" data-ng-model='search.type2' data-ng-true-value='beef' />
+      <label for="test2">Beef</label>
+    </p>
+    <p>
+      <input type="checkbox" id="test3" data-ng-model='search.type3' data-ng-true-value='chicken' />
+      <label for="test3">Cheese</label>
+    </p>
+    <p>
+      <input type="checkbox" id="test4" data-ng-model='search.type4' data-ng-true-value='egg' />
+      <label for="test4">Egg</label>
+    </p>
+    <p>
+      <input type="checkbox" id="test1" data-ng-model='search.type5' data-ng-true-value='fish' />
+      <label for="test1">Fish</label>
+    </p>
+  <!-- <input type="checkbox"  data-ng-false-value='' /> Chicken &nbsp;&nbsp;&nbsp;
   <input type="checkbox" data-ng-model='search.type2' data-ng-true-value='beef' data-ng-false-value='' /> Beef
-  <input type="checkbox" data-ng-model='search.type3' data-ng-true-value='cheese' data-ng-false-value='' /> Cheese
-  <h4>Recipies:</h4>
-  <div ng-repeat = "recipe in recipies | filter:search.type1 | filter:search.type2 | filter:search.type3">
+  <input type="checkbox" data-ng-model='search.type3' data-ng-true-value='cheese' data-ng-false-value='' /> Cheese -->
+</form>
+  <h5>Recipies:</h5>
+  <div ng-repeat = "recipe in recipies | filter:search.type1 | filter:search.type2 | filter:search.type3 | filter:search.type4 | filter:search.type5">
   	{{ recipe.Name }}
   	<!-- {{ 'Name: ' + recipe.Name + ', Instructions: ' + recipe.Instructions + ', Number: ' + recipe.Phone + ', Location: ' + recipe.Address }} -->
   </div>
         <!-- <div ng-repeat = "recipe in recipies | filter: contactSearch track by $index">
                 {{ 'Name: ' + recipe.Name + ', Instructions: ' + recipe.Instructions + ', Number: ' + recipe.Phone + ', Location: ' + recipe.Address }}
             </div> -->
+          </div>
         </body>
         <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.0rc3/angular.min.js'></script>
 
