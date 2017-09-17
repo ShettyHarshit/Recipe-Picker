@@ -21,8 +21,11 @@
 		<!-- <h1>Recipe App</h1> -->
   <!-- <h3>Search Ingrdients:</h3>
   <input type="text" ng-model="contactSearch" placeholder="Search Ingredients"> -->
-
-  <h5>Pick Ingredients</h5>
+<div class="card">
+  <div class="">
+  
+  <div class="card-content">
+    <h5>Pick Ingredients</h5>
   <form action="#">
     <p>
       <input type="checkbox" id="test5" data-ng-model='search.type1' data-ng-true-value='chicken' />
@@ -44,10 +47,14 @@
       <input type="checkbox" id="test1" data-ng-model='search.type5' data-ng-true-value='fish' />
       <label for="test1">Fish</label>
     </p>
+    
   <!-- <input type="checkbox"  data-ng-false-value='' /> Chicken &nbsp;&nbsp;&nbsp;
   <input type="checkbox" data-ng-model='search.type2' data-ng-true-value='beef' data-ng-false-value='' /> Beef
   <input type="checkbox" data-ng-model='search.type3' data-ng-true-value='cheese' data-ng-false-value='' /> Cheese -->
 </form>
+</div>
+</div>
+</div>
   <h5>Recipies:</h5>
   <div ng-repeat = "recipe in recipies | filter:search.type1 | filter:search.type2 | filter:search.type3 | filter:search.type4 | filter:search.type5">
   	{{ recipe.Name }}
