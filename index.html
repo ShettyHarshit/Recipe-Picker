@@ -3,9 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Recipe App</title>
+  <title>Recipe App</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 
 
@@ -16,38 +18,34 @@
     <div class="top-cover"><span class="">Recipe Picker</span></div>
     
 
-</div>
-    <div class="container">
-		<!-- <h1>Recipe App</h1> -->
+  </div>
+  <div class="container">
+    <!-- <h1>Recipe App</h1> -->
   <!-- <h3>Search Ingrdients:</h3>
-  <input type="text" ng-model="contactSearch" placeholder="Search Ingredients"> -->
-<div class="card">
-  <div class="">
-  
-  <div class="card-content">
-    <h5>Pick Ingredients</h5>
-  <form action="#">
-    <p>
-      <input type="checkbox" id="test5" data-ng-model='search.type1' data-ng-true-value='chicken' />
-      <label for="test5">Chicken</label>
-    </p>
-    <p>
-      <input type="checkbox" id="test2" data-ng-model='search.type2' data-ng-true-value='beef' />
-      <label for="test2">Beef</label>
-    </p>
-    <p>
-      <input type="checkbox" id="test3" data-ng-model='search.type3' data-ng-true-value='chicken' />
-      <label for="test3">Cheese</label>
-    </p>
-    <p>
-      <input type="checkbox" id="test4" data-ng-model='search.type4' data-ng-true-value='egg' />
-      <label for="test4">Egg</label>
-    </p>
-    <p>
-      <input type="checkbox" id="test1" data-ng-model='search.type5' data-ng-true-value='fish' />
-      <label for="test1">Fish</label>
-    </p>
-    
+    <input type="text" ng-model="contactSearch" placeholder="Search Ingredients"> -->
+    <div class="card">
+      <div class="">
+
+        <div class="card-content">
+          <h5>Pick Ingredients</h5>
+          <form action="#">
+            <p>
+              <input type="checkbox" id="test5" data-ng-model='search.type1' data-ng-true-value='chicken' />
+              <label for="test5"><span class="box-space">Chicken</span></label>
+            
+              <input type="checkbox" id="test2" data-ng-model='search.type2' data-ng-true-value='beef' />
+              <label for="test2"><span class="box-space">Beef</span></label>
+            
+              <input type="checkbox" id="test3" data-ng-model='search.type3' data-ng-true-value='chicken' />
+              <label for="test3"><span class="box-space">Cheese</span></label>
+            
+              <input type="checkbox" id="test4" data-ng-model='search.type4' data-ng-true-value='egg' />
+              <label for="test4"><span class="box-space">Egg</span></label>
+            
+              <input type="checkbox" id="test1" data-ng-model='search.type5' data-ng-true-value='fish' />
+              <label for="test1"><span class="box-space">Fish</span></label>
+            </p>
+
   <!-- <input type="checkbox"  data-ng-false-value='' /> Chicken &nbsp;&nbsp;&nbsp;
   <input type="checkbox" data-ng-model='search.type2' data-ng-true-value='beef' data-ng-false-value='' /> Beef
   <input type="checkbox" data-ng-model='search.type3' data-ng-true-value='cheese' data-ng-false-value='' /> Cheese -->
@@ -55,19 +53,60 @@
 </div>
 </div>
 </div>
-  <h5>Recipies:</h5>
-  <div ng-repeat = "recipe in recipies | filter:search.type1 | filter:search.type2 | filter:search.type3 | filter:search.type4 | filter:search.type5">
-  	{{ recipe.Name }}
-  	<!-- {{ 'Name: ' + recipe.Name + ', Instructions: ' + recipe.Instructions + ', Number: ' + recipe.Phone + ', Location: ' + recipe.Address }} -->
-  </div>
+<h5>Recipies:</h5>
+<div ng-repeat = "recipe in recipies | filter:search.type1 | filter:search.type2 | filter:search.type3 | filter:search.type4 | filter:search.type5">
+  <div class="card">
+    <div class="card-image">
+      <img src="{{recipe.Link}}">
+      <span class="card-title">{{ recipe.Name }}</span>
+    </div>
+    <div class="card-content">
+      <!-- <p>{{ recipe.List }}</p> -->
+      <div class="">
+          <button class="" onclick="openCity('London')">Ingredients</button>
+          <button class="" onclick="openCity('Paris')">Recipe</button>
+        </div>
+      <div id="London" class="city">
+        <h5>Requirements:</h5>
+        <p>{{recipe.List}}</p>
+      </div>
+      
+      <div id="Paris" class="city" style="display:none">
+        <h5>Instructions:</h5>
+        <p>{{recipe.Instructions}}</p> 
+      </div>
+
+      
+    </div>
+
+
+          </div>
+
+          
+          <!-- {{ recipe.Name }} -->
+          <!-- {{ 'Name: ' + recipe.Name + ', Instructions: ' + recipe.Instructions + ', Number: ' + recipe.Phone + ', Location: ' + recipe.Address }} -->
+        </div>
         <!-- <div ng-repeat = "recipe in recipies | filter: contactSearch track by $index">
                 {{ 'Name: ' + recipe.Name + ', Instructions: ' + recipe.Instructions + ', Number: ' + recipe.Phone + ', Location: ' + recipe.Address }}
-            </div> -->
-          </div>
+              </div> -->
+            </div>
+          </body>
+          <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.0rc3/angular.min.js'></script>
+          
+      <script type="text/javascript" src="http://materializecss.com/bin/materialize.js"></script>
+      
+
+          <script src="js/index.js"></script>
+          <script>
+            function openCity(cityName) {
+    var i;
+    var x = document.getElementsByClassName("city");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none"; 
+    }
+    document.getElementById(cityName).style.display = "block"; 
+}
+          </script>
+
         </body>
-        <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.0rc3/angular.min.js'></script>
-
-        <script src="js/index.js"></script>
-
-    </body>
-    </html>
+        </html>
