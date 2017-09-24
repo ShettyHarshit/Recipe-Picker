@@ -32,18 +32,21 @@
             <p>
               <input type="checkbox" id="test5" data-ng-model='search.type1' data-ng-true-value='chicken' />
               <label for="test5"><span class="box-space">Chicken</span></label>
-            
+
               <input type="checkbox" id="test2" data-ng-model='search.type2' data-ng-true-value='beef' />
               <label for="test2"><span class="box-space">Beef</span></label>
-            
+
               <input type="checkbox" id="test3" data-ng-model='search.type3' data-ng-true-value='chicken' />
               <label for="test3"><span class="box-space">Cheese</span></label>
-            
+
               <input type="checkbox" id="test4" data-ng-model='search.type4' data-ng-true-value='egg' />
               <label for="test4"><span class="box-space">Egg</span></label>
-            
+
               <input type="checkbox" id="test1" data-ng-model='search.type5' data-ng-true-value='fish' />
               <label for="test1"><span class="box-space">Fish</span></label>
+
+              <input type="checkbox" id="test6" data-ng-model='search.type6' data-ng-true-value='shrimp' />
+              <label for="test6"><span class="box-space">Shrimp</span></label>
             </p>
 
   <!-- <input type="checkbox"  data-ng-false-value='' /> Chicken &nbsp;&nbsp;&nbsp;
@@ -54,18 +57,23 @@
 </div>
 </div>
 <h5>Recipies:</h5>
-<div ng-repeat = "recipe in recipies | filter:search.type1 | filter:search.type2 | filter:search.type3 | filter:search.type4 | filter:search.type5">
+<div class="row">
+<div class="col s6" ng-repeat = "recipe in recipies | filter:search.type1 | filter:search.type2 | filter:search.type3 | filter:search.type4 | filter:search.type5 | filter:search.type6">
   <div class="card">
     <div class="card-image">
       <img src="{{recipe.Link}}">
       <span class="card-title">{{ recipe.Name }}</span>
     </div>
     <div class="card-content">
+      <h5>Requirements:</h5>
+        <p>{{recipe.List}}</p>
+        <h5>Instructions:</h5>
+        <p>{{recipe.Instructions}}</p> 
       <!-- <p>{{ recipe.List }}</p> -->
-      <div class="">
-          <button class="" onclick="openCity('London')">Ingredients</button>
-          <button class="" onclick="openCity('Paris')">Recipe</button>
-        </div>
+      <!-- <div class="">
+        <button class="" onclick="openCity('London')">Ingredients</button>
+        <button class="" onclick="openCity('Paris')">Recipe</button>
+      </div>
       <div id="London" class="city">
         <h5>Requirements:</h5>
         <p>{{recipe.List}}</p>
@@ -74,38 +82,44 @@
       <div id="Paris" class="city" style="display:none">
         <h5>Instructions:</h5>
         <p>{{recipe.Instructions}}</p> 
-      </div>
+      </div> -->
 
       
     </div>
 
 
-          </div>
+  </div>
 
-          
-          <!-- {{ recipe.Name }} -->
-          <!-- {{ 'Name: ' + recipe.Name + ', Instructions: ' + recipe.Instructions + ', Number: ' + recipe.Phone + ', Location: ' + recipe.Address }} -->
-        </div>
+
+  <!-- {{ recipe.Name }} -->
+  <!-- {{ 'Name: ' + recipe.Name + ', Instructions: ' + recipe.Instructions + ', Number: ' + recipe.Phone + ', Location: ' + recipe.Address }} -->
+</div>
         <!-- <div ng-repeat = "recipe in recipies | filter: contactSearch track by $index">
                 {{ 'Name: ' + recipe.Name + ', Instructions: ' + recipe.Instructions + ', Number: ' + recipe.Phone + ', Location: ' + recipe.Address }}
               </div> -->
             </div>
+
+</div>
+
+            
+
+
           </body>
           <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.0rc3/angular.min.js'></script>
           
-      <script type="text/javascript" src="http://materializecss.com/bin/materialize.js"></script>
-      
+          <script type="text/javascript" src="http://materializecss.com/bin/materialize.js"></script>
+
 
           <script src="js/index.js"></script>
           <script>
             function openCity(cityName) {
-    var i;
-    var x = document.getElementsByClassName("city");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none"; 
-    }
-    document.getElementById(cityName).style.display = "block"; 
-}
+              var i;
+              var x = document.getElementsByClassName("city");
+              for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none"; 
+              }
+              document.getElementById(cityName).style.display = "block"; 
+            }
           </script>
 
         </body>
